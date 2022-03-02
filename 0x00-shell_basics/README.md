@@ -1,0 +1,1 @@
+- Exploring the basics of shell.
