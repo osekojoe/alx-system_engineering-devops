@@ -1,2 +1,2 @@
 #!/bin/bash
-paste -sd - | cut -f 1 
+paste -s - | cut -f 1 
