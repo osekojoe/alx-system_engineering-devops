@@ -5,4 +5,4 @@
 # Display in a user-oriented format
 # Show process hierarchy
 
-ps -faux | pgrep -l bash
+echo $$ | pgrep -l bash
