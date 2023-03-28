@@ -3,7 +3,8 @@
 # Listening Port:80
 # When querying Nginx at its root / with a GET request (requesting a page)
 # using curl, it must return a page that contains the string Hello World!
-apt-get -y update
-apt-get install -y nginx
+sudo apt-get -y update
+sudo apt-get install -y nginx
+sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
-service nginx restart
+sudo service nginx restart
