@@ -14,5 +14,5 @@ listen load-balance
         option forwardfor
         server 16275-web-01 54.236.26.66 check port 80
         server 16275-web-02 54.159.23.136 check port 80
-" >> /etc/haproxy/haproxy.cfg
+" | sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
 sudo service haproxy restart
