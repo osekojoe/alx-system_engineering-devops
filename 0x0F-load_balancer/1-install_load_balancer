@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Configures HAproxy load balancer on your lb-01 server.
+
+sudo apt-get update
+sudo apt-get install -y haproxy
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.default
+echo "
+listen load-balance
+        bind :80
+        bind :8080
+        mode http
+        balance roundrobin
+        option httpchk HEAD / HTTP/1.1\r\nHost:\ localhost
+        option forwardfor
+        server 16275-web-01 54.236.26.66 check port 80
+        server 16275-web-02 54.159.23.136 check port 80
+" >> /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
