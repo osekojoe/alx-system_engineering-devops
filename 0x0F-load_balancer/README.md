@@ -1,0 +1,4 @@
+- 0x0F. Load balancer
+-[Introduction to load-balancing and HAproxy](https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts)<br>
+-[HTTP header](https://www.techopedia.com/definition/27178/http-header)<br>
+-[Debian/Ubuntu HAProxy packages](https://haproxy.debian.net/)
