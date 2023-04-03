@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# configure web-02(ubuntu) to be identical to web-01
+
+sudo apt-get update
+sudo apt-get install -y nginx
+sed -i "/server_name _;/a add_header X-Served-By '$HOSTNAME';" /etc/nginx/sites-available/default
+service nginx restart
