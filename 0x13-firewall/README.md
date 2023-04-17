@@ -1,0 +1,2 @@
+- 0x13. Firewall
+- Configure Uncomplicated Firewall (UFW) on the servers
