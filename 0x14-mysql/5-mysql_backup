@@ -5,4 +5,4 @@ month=$(date +"%m")
 year=$(date +"%Y")
 mysqldump -u root -p "$1" --all-databases > backup.sql
 date="$day-$month-$year"
-tar -czvf $date.tar.gz backup.sql
+tar -czvf "$date".tar.gz backup.sql
