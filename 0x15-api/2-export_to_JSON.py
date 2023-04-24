@@ -6,7 +6,9 @@ returns information about his/her TODO list progress.
 """
 
 
-import sys, requests, json
+import json
+import requests
+import sys
 
 
 def to_json(users=None, todos=None, userId=None):
@@ -19,6 +21,7 @@ def to_json(users=None, todos=None, userId=None):
                               "username": users[0].get('username')})
         data_json = {str(userId): data_list}
         json.dump(data_json, f)
+
 
 if __name__ == "__main__":
     if len(sys.argv) == 2 and sys.argv[1].isdigit():
