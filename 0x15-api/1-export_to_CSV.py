@@ -31,9 +31,9 @@ if __name__ == "__main__":
         args_id = {"id": sys.argv[1]}
         users = requests.get("https://jsonplaceholder.typicode.com/users",
                              params=args_id).json()
-        args_userId = {"userId": sys.argv[1]}
+        args_userid = {"userId": sys.argv[1]}
         todos = requests.get("https://jsonplaceholder.typicode.com/todos",
-                             params=args_userId).json()
+                             params=args_userid).json()
         todos_len = 0
         todos_arr = []
         for i in todos:
@@ -41,4 +41,4 @@ if __name__ == "__main__":
                 todos_arr.append(i)
                 todos_len += 1
 
-        to_csv(users, todos)
+        make_csv(users, todos)
