@@ -11,8 +11,8 @@ import requests
 import sys
 
 
-def to_csv(users=None, todos=None):
-    """export data in the CSV format"""
+def make_csv(users=None, todos=None):
+    """Turns payloads into CSV format"""
     titles = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
 
     with open(sys.argv[1] + ".csv", "w") as f:
