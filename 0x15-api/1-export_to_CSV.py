@@ -13,17 +13,15 @@ import sys
 
 def to_csv(users=None, todos=None):
     """export data in the CSV format"""
-    fieldname = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
+    titles = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
 
-    with open(sys.argv[1] + '.csv', 'w') as csvfile:
-        '''map dictionary into output rows'''
-        write = csv.DictWriter(csvfile, fieldname=fieldname,
-                               quoting=csv.QUOTE_ALL)
+    with open(sys.argv[1] + ".csv", "w") as f:
+        write = csv.DictWriter(f, fieldnames=titles, quoting=csv.QUOTE_ALL)
         for i in todos:
-            write.writerow({"USER_ID": i.get('userId'),
-                            "USERNAME": users[0].get('username'),
-                            "TASK_COMPLETED_STATUS": i.get('completed'),
-                            "TASK_TITLE": i.get('title')})
+            write.writerow({"USER_ID": i.get("userId"),
+                            "USERNAME": users[0].get("username"),
+                            "TASK_COMPLETED_STATUS": i.get("completed"),
+                            "TASK_TITLE": i.get("title")})
 
 
 if __name__ == "__main__":
