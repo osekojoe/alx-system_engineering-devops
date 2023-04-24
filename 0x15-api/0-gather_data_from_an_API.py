@@ -13,10 +13,10 @@ if __name__ == '__main__':
     if len(sys.argv) == 2 and sys.argv[1].isdigit():
         args_id = {'id': sys.argv[1]}
         users = requests.get("https://jsonplaceholder.typicode.com/users",
-                            params=args_id).json()
+                             params=args_id).json()
         args_userId = {'userId': sys.argv[1]}
         todos = requests.get("https://jsonplaceholder.typicode.com/todos",
-                            params=args_userId).json()
+                             params=args_userId).json()
 
         todos_len = 0
         todos_arr = []
