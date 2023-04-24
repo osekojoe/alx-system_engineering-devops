@@ -6,7 +6,9 @@ returns information about his/her TODO list progress.
 """
 
 
-import sys, requests, json
+import json
+import requests
+import sys
 
 
 if __name__ == "__main__":
