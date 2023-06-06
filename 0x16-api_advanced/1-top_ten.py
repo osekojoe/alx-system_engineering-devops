@@ -20,21 +20,17 @@ def top_ten(subreddit):
     }
 
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    
-    response = requests.get(url,
-                            headers=headers,
-                            params=params,
-                            allow_redirects=False)
-    
-    if response.status_code != 200:
+    res = requests.get(url,
+                       headers=headers,
+                       params=params,
+                       allow_redirects=False)
+    if res.status_code != 200:
         print(None)
         return
-
-    data = response.json()
-    posts = data['data']['children']
-    if len(posts) is 0:
+    dic = res.json()
+    hot_posts = dic['data']['children']
+    if len(hot_posts) is 0:
         print(None)
     else:
-        for post in posts:
-            title = post['data']['title']
-            print(title)
+        for post in hot_posts:
+            print(post['data']['title'])
