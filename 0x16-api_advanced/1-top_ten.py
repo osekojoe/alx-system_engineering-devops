@@ -32,7 +32,7 @@ def top_ten(subreddit):
 
     data = response.json()
     posts = data['data']['children']
-    if len(posts) == 0:
+    if len(posts) is 0:
         print(None)
     else:
         for post in posts:
