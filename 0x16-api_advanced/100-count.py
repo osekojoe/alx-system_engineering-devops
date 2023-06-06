@@ -27,7 +27,7 @@ def append_post(dictionary, hot_posts):
     append_post(dictionary, hot_posts)
 
 
-def recurse(subreddit, hot_list=[], after=None):
+def recurse(subreddit, dictionary, after=None):
     """A recursive function that queries the Reddit API"""
     headers = {
         'User-Agent': 'Mozilla/5.0'
@@ -48,7 +48,7 @@ def recurse(subreddit, hot_list=[], after=None):
 
     data = response.json()
     posts = data['data']['children']
-    append_post(hot_list, posts)
+    append_post(dictionary, posts)
 
     after = data['data']['after']
     if not after:
