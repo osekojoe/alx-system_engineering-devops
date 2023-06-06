@@ -12,7 +12,7 @@ import requests
 import sys
 
 
-def append_title(dictionary, hot_posts):
+def add_title(dictionary, hot_posts):
     """ Adds item into a list """
     if len(hot_posts) == 0:
         return
@@ -24,11 +24,11 @@ def append_title(dictionary, hot_posts):
             if c.findall(word):
                 dictionary[key] += 1
     hot_posts.pop(0)
-    append_title(dictionary, hot_posts)
+    add_title(dictionary, hot_posts)
 
 
 def recurse(subreddit, dictionary, after=None):
-    """ Recursively queries the Reddit API """
+    """ Queries to Reddit API """
     headers = {
         'User-Agent': 'Mozilla/5.0'
     }
@@ -38,25 +38,25 @@ def recurse(subreddit, dictionary, after=None):
     }
 
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    response = requests.get(url,
+    res = requests.get(url,
                        headers=headers,
                        params=params,
                        allow_redirects=False)
 
-    if response.status_code != 200:
+    if res.status_code != 200:
         return None
 
-    data = response.json()
-    hot_posts = data['data']['children']
-    append_title(dictionary, hot_posts)
-    after = data['data']['after']
+    dic = res.json()
+    hot_posts = dic['data']['children']
+    add_title(dictionary, hot_posts)
+    after = dic['data']['after']
     if not after:
         return
     recurse(subreddit, dictionary, after=after)
 
 
 def count_words(subreddit, word_list):
-    """ Count words """
+    """ Init function """
     dictionary = {}
 
     for word in word_list:
