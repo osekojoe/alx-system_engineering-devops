@@ -11,7 +11,7 @@ import sys
 
 def top_ten(subreddit):
     """queries the Reddit API"""
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     
     headers = {
         "User-Agent": 'Mozilla/5.0'
