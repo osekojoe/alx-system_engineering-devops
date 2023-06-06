@@ -10,31 +10,31 @@ import sys
 
 
 def top_ten(subreddit):
-    """queries the Reddit API"""
-    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    
+    """Queries the Reddit API"""
     headers = {
-        "User-Agent": 'Mozilla/5.0'
+        'User-Agent': 'Mozilla/5.0'
     }
-    
+
     params = {
         'limit': 10
     }
 
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    
     response = requests.get(url,
-                            headers=headers,
-                            params=params,
-                            allow_redirects=False)
+                       headers=headers,
+                       params=params,
+                       allow_redirects=False)
     
     if response.status_code != 200:
         print(None)
+        return
 
     data = response.json()
     posts = data['data']['children']
-    
     if len(posts) == 0:
         print(None)
-
-    for post in posts:
-        title = post["data"]["title"]
-        print(title)
+    else:
+        for post in posts:
+            title = post['data']['title']
+            print(title)
