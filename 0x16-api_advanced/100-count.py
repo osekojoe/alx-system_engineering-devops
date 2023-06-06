@@ -52,8 +52,8 @@ def recurse(subreddit, hot_list=[], after=None):
 
     after = data['data']['after']
     if not after:
-        return hot_list
-    return recurse(subreddit, hot_list=hot_list, after=after)
+        return
+    return recurse(subreddit, dictionary, after=after)
 
 
 def count_words(subreddit, word_list):
