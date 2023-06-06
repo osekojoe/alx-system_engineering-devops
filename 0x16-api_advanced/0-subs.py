@@ -6,8 +6,8 @@ If an invalid subreddit is given, the function should return 0.
 """
 
 
-import sys
 import requests
+import sys
 
 
 def number_of_subscribers(subreddit):
